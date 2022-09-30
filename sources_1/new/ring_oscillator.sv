@@ -12,30 +12,38 @@
 `define RO_SLICE_ASSIGNS(PREV, CURR, SEL, BX_SEL)\
     assign OUTA``PREV = OUT``PREV; \
     assign OUTA``PREV = OUT``PREV; \
-    // O = I2&~I0 | ~I2&~I1 \
-    // I2: SEL \
-    // I1: ~OUT \
-    // I2: ~OUT (latched) \
-    LUT3 #( .INIT(8'h53) ) LUT3``CURR ( \
-        .O(BX``CURR[0]), \
-       .I0(OUT``PREV[0]), \
-       .I1(OUT``PREV[1]), \
-       .I2(SEL) \
+    // O = I5&~I3 | ~I5&~I4 => 0x53 => 0x00ff00ff0000ffff \
+    // I5: SEL \
+    // I4: ~OUT \
+    // I3: ~OUT (latched) \
+    LUT6_L #( \
+       .INIT(64'h00ff00ff0000ffff)  // Specify LUT Contents \
+    ) LUT6``CURR ( \
+       .LO(BX``CURR[0]),   // LUT general output \
+       .I0(0), // LUT input \
+       .I1(0), // LUT input \
+       .I2(0), // LUT input \
+       .I3(OUT``PREV[0]), // LUT input \
+       .I4(OUT``PREV[1]), // LUT input \
+       .I5(SEL)  // LUT input \
     ); \
-    LUT3 #( .INIT(8'h53) ) LUT3A``CURR ( \
-       .O(BX``CURR[1]),   // LUT general output \
-       .I0(OUTA``PREV[0]), // LUT input \
-       .I1(OUTA``PREV[1]), // LUT input \
-       .I2(SEL)  // LUT input \
+    LUT6_L #( \
+       .INIT(64'h00ff00ff0000ffff)  // Specify LUT Contents \
+    ) LUT6A``CURR ( \
+       .LO(BX``CURR[1]),   // LUT general output \
+       .I0(0), // LUT input \
+       .I1(0), // LUT input \
+       .I2(0), // LUT input \
+       .I3(OUTA``PREV[0]), // LUT input \
+       .I4(OUTA``PREV[1]), // LUT input \
+       .I5(SEL)  // LUT input \
     ); \
-    always_comb begin\
-        case(BX_SEL) \
-            0: OUT``CURR[0] = BX``CURR[1]; \
-            1: OUT``CURR[0] = BX``CURR[0]; \
-            default: OUT``CURR[0] = BX``CURR[1]; \
-        endcase \
-    end \
-//    assign OUT``CURR[0] = BX_SEL ? BX``CURR[1] : BX``CURR[0]; \
+    MUXF7 MUXF7_inst ( \
+       .O(OUT``CURR[0]),    // Output of MUX to general routing \
+       .I0(BX``CURR[1]),  // Input (tie to LUT6 O6 pin) \
+       .I1(BX``CURR[0]),  // Input (tie to LUT6 O6 pin) \
+       .S(BX_SEL)     // Input select to MUX \
+    ); \
     always_latch if (EN) OUT``CURR[1] <= OUT``CURR[0];
 
 `define RO_SLICE(PREV, CURR, SEL, BX_SEL) \
