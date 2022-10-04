@@ -15,7 +15,7 @@ module RO_PUF(
     logic [15:0] time_count;
     logic [15:0] ro_count;
     logic [15:0] compare_result [0:`NUM_RO-1];
-    logic [1:0] current_ro;
+    logic [3:0] current_ro;
     logic [`NUM_RO-1:0] ro_out;
 
 
