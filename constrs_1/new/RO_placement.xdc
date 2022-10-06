@@ -18,15 +18,16 @@ add_cells_to_pblock [get_pblocks {pblock_genblk2[3].RO}] [get_cells -quiet [list
 create_pblock {pblock_genblk2[4].RO}
 add_cells_to_pblock [get_pblocks {pblock_genblk2[4].RO}] [get_cells -quiet [list {my_ro_puf/genblk2[4].RO}]]
 resize_pblock [get_pblocks {pblock_genblk2[4].RO}] -add {SLICE_X4Y20:SLICE_X5Y20}
-create_pblock {pblock_genblk2[5].RO}
-add_cells_to_pblock [get_pblocks {pblock_genblk2[5].RO}] [get_cells -quiet [list {my_ro_puf/genblk2[5].RO}]]
-resize_pblock [get_pblocks {pblock_genblk2[5].RO}] -add {SLICE_X6Y24:SLICE_X7Y24}
-create_pblock {pblock_genblk2[6].RO}
-add_cells_to_pblock [get_pblocks {pblock_genblk2[6].RO}] [get_cells -quiet [list {my_ro_puf/genblk2[6].RO}]]
-resize_pblock [get_pblocks {pblock_genblk2[6].RO}] -add {SLICE_X6Y23:SLICE_X7Y23}
-create_pblock {pblock_genblk2[7].RO}
-add_cells_to_pblock [get_pblocks {pblock_genblk2[7].RO}] [get_cells -quiet [list {my_ro_puf/genblk2[7].RO}]]
-resize_pblock [get_pblocks {pblock_genblk2[7].RO}] -add {SLICE_X6Y22:SLICE_X7Y22}
-create_pblock {pblock_genblk2[8].RO}
-add_cells_to_pblock [get_pblocks {pblock_genblk2[8].RO}] [get_cells -quiet [list {my_ro_puf/genblk2[8].RO}]]
-resize_pblock [get_pblocks {pblock_genblk2[8].RO}] -add {SLICE_X6Y21:SLICE_X7Y21}
+
+create_pblock {pblock_genblk2[5].RO_1}
+add_cells_to_pblock [get_pblocks {pblock_genblk2[5].RO_1}] [get_cells -quiet [list {my_ro_puf/genblk2[5].RO}]]
+resize_pblock [get_pblocks {pblock_genblk2[5].RO_1}] -add {SLICE_X4Y19:SLICE_X5Y19}
+create_pblock {pblock_genblk2[6].RO_1}
+add_cells_to_pblock [get_pblocks {pblock_genblk2[6].RO_1}] [get_cells -quiet [list {my_ro_puf/genblk2[6].RO}]]
+resize_pblock [get_pblocks {pblock_genblk2[6].RO_1}] -add {SLICE_X4Y18:SLICE_X5Y18}
+create_pblock {pblock_genblk2[7].RO_1}
+add_cells_to_pblock [get_pblocks {pblock_genblk2[7].RO_1}] [get_cells -quiet [list {my_ro_puf/genblk2[7].RO}]]
+resize_pblock [get_pblocks {pblock_genblk2[7].RO_1}] -add {SLICE_X4Y17:SLICE_X5Y17}
+create_pblock {pblock_genblk2[8].RO_1}
+add_cells_to_pblock [get_pblocks {pblock_genblk2[8].RO_1}] [get_cells -quiet [list {my_ro_puf/genblk2[8].RO}]]
+resize_pblock [get_pblocks {pblock_genblk2[8].RO_1}] -add {SLICE_X4Y16:SLICE_X5Y16}

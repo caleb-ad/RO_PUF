@@ -29,21 +29,23 @@ module LAB_1(
    output [3:0] ANODES
    );
     
+   logic [7:0] response;
+    
    RO_PUF my_ro_puf (
    .CLK         (CLK),
    //add input for BTNC to RO_PUF
    .CHALLENGE   (SWITCHES[7:0]),
-   .RESPONSE    (LEDS[7:0]),
+   .RESPONSE    (response),
    .DONE        (LEDS[14])
    );
    
-   
+   assign LEDS[7:0] = response;
    
    sseg_des dec (
-   .COUNT        ({SWITCHES, LEDS}),
+   .COUNT        ({SWITCHES[7:0], response}),
    .CLK          (CLK),
    .VALID        (DONE),
-   .DISP_EN       (ANODES),
+   .DISP_EN      (ANODES),
    .SEGMENTS     (CATHODES)
    );
     
