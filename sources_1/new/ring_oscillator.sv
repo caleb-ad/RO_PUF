@@ -58,25 +58,23 @@
 `define RO_SLICE(PREV, CURR, SEL, BX_SEL, EN) \
     `RO_SLICE_NETS(PREV, CURR); \
     `RO_SLICE_ASSIGNS(PREV, CURR, SEL, BX_SEL, EN, `INVERTING_SLICE);
-    
+
 `define RO_SLICE_NOINVERT(PREV, CURR, SEL, BX_SEL, EN)\
     `RO_SLICE_NETS(PREV, CURR); \
     `RO_SLICE_ASSIGNS(PREV, CURR, SEL, BX_SEL, EN, `NONINVERTING_SLICE);
-    
+
 
 (* dont_touch = "true" *) module ring_oscillator(
     input EN,
     input [5:0] CHALLENGE,
     output logic OUT
     );
-    
-    
+
     `RO_SLICE_FIRST(3, 0, CHALLENGE[3], CHALLENGE[0], EN);
     `RO_SLICE(0, 1, CHALLENGE[4], CHALLENGE[1], EN);
     `RO_SLICE(1, 2, CHALLENGE[5], CHALLENGE[2], EN);
     `RO_SLICE_NOINVERT(2, 3, CHALLENGE[4], CHALLENGE[3], EN);
-//     To use the full capctity of a Configurable Logic Block, more slices should be used
 
     assign OUT = OUT2[0];
-    
+
 endmodule
