@@ -6,7 +6,7 @@
 ## Clock signal
 set_property PACKAGE_PIN W5 [get_ports CLK]							
 	set_property IOSTANDARD LVCMOS33 [get_ports CLK]
-	create_clock -add -name sys_clk_pin -period 20.00 -waveform {0 5} [get_ports CLK]
+	create_clock -add -name sys_clk_pin -period 10.00 -waveform {0 5} [get_ports CLK]
  
 ## Switches
 set_property PACKAGE_PIN V17 [get_ports {SWITCHES[0]}]					
@@ -94,8 +94,8 @@ set_property PACKAGE_PIN V5 [get_ports {CATHODES[1]}]
 set_property PACKAGE_PIN U7 [get_ports {CATHODES[0]}]					
 	set_property IOSTANDARD LVCMOS33 [get_ports {CATHODES[0]}]
 
-set_property PACKAGE_PIN V7 [get_ports {CATHODES[7]}]							
-	set_property IOSTANDARD LVCMOS33 [get_ports {CATHODES[7]}]
+#set_property PACKAGE_PIN V7 [get_ports {CATHODES[7]}]							
+#	set_property IOSTANDARD LVCMOS33 [get_ports {CATHODES[7]}]
 
 set_property PACKAGE_PIN U2 [get_ports {ANODES[0]}]					
 	set_property IOSTANDARD LVCMOS33 [get_ports {ANODES[0]}]
