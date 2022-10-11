@@ -94,8 +94,8 @@ set_property PACKAGE_PIN V5 [get_ports {CATHODES[1]}]
 set_property PACKAGE_PIN U7 [get_ports {CATHODES[0]}]					
 	set_property IOSTANDARD LVCMOS33 [get_ports {CATHODES[0]}]
 
-#set_property PACKAGE_PIN V7 [get_ports {CATHODES[7]}]							
-#	set_property IOSTANDARD LVCMOS33 [get_ports {CATHODES[7]}]
+#set_property PACKAGE_PIN V7 [get_ports {CATHODES[0]}]							
+#	set_property IOSTANDARD LVCMOS33 [get_ports {CATHODES[0]}]
 
 set_property PACKAGE_PIN U2 [get_ports {ANODES[0]}]					
 	set_property IOSTANDARD LVCMOS33 [get_ports {ANODES[0]}]
