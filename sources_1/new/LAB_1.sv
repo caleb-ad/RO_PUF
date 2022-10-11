@@ -51,17 +51,4 @@ module LAB_1(
    .SEGMENTS     (CATHODES)
    );
 
-//   MealySevSeg UNIV_SSEG (
-//   .clk      (CLK),
-//   .cnt1     ({6'b0, SWITCHES[7:0]}),
-//   .cnt2     (7'b0),
-//   .dp_en    (1'b0),
-//   .dp_sel   (2'b0),
-//   .mod_sel  (2'b00),
-//   .sign     (1'b0),
-//   .valid    (DONE),
-//   .ssegs    (CATHODES),
-//   .disp_en  (ANODES)
-//   );
-    
 endmodule

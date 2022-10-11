@@ -5,10 +5,10 @@
 
 `define RO_SLICE_NETS(PREV, CURR) \
     `ifndef OUT_DECLARED``CURR \
-        (* dont_touch = "true" *) logic [1:0] OUT``CURR; \
+        (* dont_touch = "true", allow_combinatorial_loops = "true" *) logic [1:0] OUT``CURR; \
     `endif \
-    (* dount_touch = "true" *) logic [1:0] OUTA``PREV; \
-    (* dont_touch = "true" *) logic [1:0] BX``CURR;
+    (* dount_touch = "true", allow_combinatorial_loops = "true" *) logic [1:0] OUTA``PREV; \
+    (* dont_touch = "true", allow_combinatorial_loops = "true" *) logic [1:0] BX``CURR;
 
 `define RO_SLICE_ASSIGNS(PREV, CURR, SEL, BX_SEL, EN, LUT_CODE)\
     assign OUTA``PREV = OUT``PREV; \
@@ -51,7 +51,7 @@
     always_latch if (EN) OUT``CURR[1] <= OUT``CURR[0];
 
 `define RO_SLICE_FIRST(PREV, CURR, SEL, BX_SEL, EN) \
-    (* dont_touch = "true" *) logic [1:0] OUT``PREV; \
+    (* dont_touch = "true", allow_combinatorial_loops = "true" *) logic [1:0] OUT``PREV; \
     `define OUT_DECLARED``PREV \
     `RO_SLICE(PREV, CURR, SEL, BX_SEL, EN)
 
