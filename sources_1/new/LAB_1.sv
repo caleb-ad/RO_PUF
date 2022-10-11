@@ -22,7 +22,7 @@
 
 module LAB_1(
    input CLK,
-   //input BTNC,
+   input BTNC,
    input [15:0] SWITCHES,
    output logic [15:0] LEDS,
    output [6:0] CATHODES,
@@ -33,7 +33,7 @@ module LAB_1(
     
    RO_PUF my_ro_puf (
    .CLK         (CLK),
-   //add input for BTNC to RO_PUF
+   .RESET       (BTNC),
    .CHALLENGE   (SWITCHES[7:0]),
    .RESPONSE    (response),
    .DONE        (LEDS[14])

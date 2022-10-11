@@ -5,6 +5,7 @@
 module RO_PUF(
     input [7:0] CHALLENGE,
     input CLK,
+    input RESET,
     output logic [7:0] RESPONSE,
     output logic DONE
     );
@@ -20,7 +21,7 @@ module RO_PUF(
     
 
     generate
-        for (genvar i=0; i<`NUM_RO; i = i + 1) assign RESPONSE[i] = compare_result[i] > compare_result[i + 1];
+        for (genvar i=0; i<`NUM_RO - 1; i = i + 1) assign RESPONSE[i] = compare_result[i] > compare_result[i + 1];
         for (genvar i=0; i<`NUM_RO; i = i + 1) ring_oscillator  RO(.EN((current_ro == i) && enable), .CHALLENGE(CHALLENGE[5:0]), .OUT(ro_out[i]));
     endgenerate
     
@@ -32,18 +33,17 @@ module RO_PUF(
         else if(enable) ro_count <= ro_count + 1;
     end
     
-
     logic old_challenge_xor;
     always_ff @(posedge CLK) begin
         reset <= 0;
         compare_result[current_ro] <= ro_count;
     
-        if(old_challenge_xor != ^CHALLENGE) begin
+        if(old_challenge_xor != ^{RESET, CHALLENGE}) begin
             enable <= 1;
             time_count <= 0;
             current_ro <= 0;
         end
-        old_challenge_xor <= ^CHALLENGE;
+        old_challenge_xor <= ^{RESET, CHALLENGE};
         
         if(enable && (time_count == 'hfffff)) begin
             if(current_ro == `NUM_RO - 1) enable <=0;
