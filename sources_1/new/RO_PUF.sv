@@ -13,9 +13,9 @@ module RO_PUF(
     logic enable;
     logic reset;
     logic count_clk;
-    logic [31:0] time_count;
-    logic [31:0] ro_count;
-    logic [31:0] compare_result [0:`NUM_RO-1];
+    logic [15:0] time_count;
+    logic [15:0] ro_count;
+    logic [15:0] compare_result [0:`NUM_RO-1];
     logic [3:0] current_ro;
     logic [`NUM_RO-1:0] ro_out;
     
@@ -45,7 +45,7 @@ module RO_PUF(
         end
         old_challenge_xor <= ^{RESET, CHALLENGE};
         
-        if(enable && (time_count == 'hfffff)) begin
+        if(enable && (time_count == 'hffff)) begin
             if(current_ro == `NUM_RO - 1) enable <=0;
             else current_ro <= current_ro + 1;
             reset <= 1;
