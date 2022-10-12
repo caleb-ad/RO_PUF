@@ -9,6 +9,10 @@ set_property IOSTANDARD LVCMOS33 [get_ports CLK]
 create_clock -period 20.000 -name sys_clk_pin -waveform {0.000 10.000} -add [get_ports CLK]
 ## 50MHz period=20 waveform = {0,10}
 
+## Configuration options, can be used for all designs
+set_property CONFIG_VOLTAGE 3.3 [current_design]
+set_property CFGBVS VCCO [current_design]
+
 ## Switches
 set_property PACKAGE_PIN V17 [get_ports {SWITCHES[0]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {SWITCHES[0]}]
@@ -293,5 +297,7 @@ set_property IOSTANDARD LVCMOS33 [get_ports BTNC]
 #set_property IOSTANDARD LVCMOS33 [get_ports {QspiDB[3]}]
 #set_property PACKAGE_PIN K19 [get_ports QspiCSn]
 #set_property IOSTANDARD LVCMOS33 [get_ports QspiCSn]
+
+
 
 

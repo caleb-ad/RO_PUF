@@ -1,29 +1,135 @@
-set_property ALLOW_COMBINATORIAL_LOOPS true [get_nets -of_objects [get_cells -quiet {my_ro_puf/genblk2[0].RO}]]
 
-create_pblock ro_0
-add_cells_to_pblock [get_pblocks ro_0] [get_cells -quiet [list {my_ro_puf/genblk2[0].RO}]]
-resize_pblock [get_pblocks ro_0] -add {SLICE_X4Y49:SLICE_X5Y49}
-create_pblock {pblock_genblk2[1].RO}
-add_cells_to_pblock [get_pblocks {pblock_genblk2[1].RO}] [get_cells -quiet [list {my_ro_puf/genblk2[1].RO}]]
-resize_pblock [get_pblocks {pblock_genblk2[1].RO}] -add {SLICE_X4Y47:SLICE_X5Y47}
-create_pblock {pblock_genblk2[2].RO}
-add_cells_to_pblock [get_pblocks {pblock_genblk2[2].RO}] [get_cells -quiet [list {my_ro_puf/genblk2[2].RO}]]
-resize_pblock [get_pblocks {pblock_genblk2[2].RO}] -add {SLICE_X4Y45:SLICE_X5Y45}
-create_pblock {pblock_genblk2[3].RO}
-add_cells_to_pblock [get_pblocks {pblock_genblk2[3].RO}] [get_cells -quiet [list {my_ro_puf/genblk2[3].RO}]]
-resize_pblock [get_pblocks {pblock_genblk2[3].RO}] -add {SLICE_X4Y43:SLICE_X5Y43}
-create_pblock {pblock_genblk2[4].RO}
-add_cells_to_pblock [get_pblocks {pblock_genblk2[4].RO}] [get_cells -quiet [list {my_ro_puf/genblk2[4].RO}]]
-resize_pblock [get_pblocks {pblock_genblk2[4].RO}] -add {SLICE_X4Y41:SLICE_X5Y41}
-create_pblock {pblock_genblk2[5].RO}
-add_cells_to_pblock [get_pblocks {pblock_genblk2[5].RO}] [get_cells -quiet [list {my_ro_puf/genblk2[5].RO}]]
-resize_pblock [get_pblocks {pblock_genblk2[5].RO}] -add {SLICE_X4Y39:SLICE_X5Y39}
-create_pblock {pblock_genblk2[6].RO}
-add_cells_to_pblock [get_pblocks {pblock_genblk2[6].RO}] [get_cells -quiet [list {my_ro_puf/genblk2[6].RO}]]
-resize_pblock [get_pblocks {pblock_genblk2[6].RO}] -add {SLICE_X4Y37:SLICE_X5Y37}
-create_pblock {pblock_genblk2[7].RO}
-add_cells_to_pblock [get_pblocks {pblock_genblk2[7].RO}] [get_cells -quiet [list {my_ro_puf/genblk2[7].RO}]]
-resize_pblock [get_pblocks {pblock_genblk2[7].RO}] -add {SLICE_X4Y35:SLICE_X5Y35}
-create_pblock {pblock_genblk2[8].RO}
-add_cells_to_pblock [get_pblocks {pblock_genblk2[8].RO}] [get_cells -quiet [list {my_ro_puf/genblk2[8].RO}]]
-resize_pblock [get_pblocks {pblock_genblk2[8].RO}] -add {SLICE_X4Y33:SLICE_X5Y33}
+
+#set_property BEL D6LUT [get_cells {my_ro_puf/genblk2[0].RO/LUT6A2}]
+#set_property LOC SLICE_X4Y49 [get_cells {my_ro_puf/genblk2[0].RO/LUT6A2}]
+#set_property BEL A6LUT [get_cells {my_ro_puf/genblk2[0].RO/LUT61}]
+#set_property LOC SLICE_X4Y49 [get_cells {my_ro_puf/genblk2[0].RO/LUT61}]
+#set_property BEL C6LUT [get_cells {my_ro_puf/genblk2[0].RO/LUT62}]
+#set_property LOC SLICE_X4Y49 [get_cells {my_ro_puf/genblk2[0].RO/LUT62}]
+#set_property BEL B6LUT [get_cells {my_ro_puf/genblk2[0].RO/LUT6A1}]
+#set_property LOC SLICE_X4Y49 [get_cells {my_ro_puf/genblk2[0].RO/LUT6A1}]
+#set_property BEL F7AMUX [get_cells {my_ro_puf/genblk2[0].RO/MUXF71}]
+#set_property LOC SLICE_X4Y49 [get_cells {my_ro_puf/genblk2[0].RO/MUXF71}]
+#set_property BEL F7BMUX [get_cells {my_ro_puf/genblk2[0].RO/MUXF72}]
+#set_property LOC SLICE_X4Y49 [get_cells {my_ro_puf/genblk2[0].RO/MUXF72}]
+#set_property BEL BFF [get_cells {my_ro_puf/genblk2[0].RO/OUT0_reg[1]}]
+#set_property LOC SLICE_X4Y49 [get_cells {my_ro_puf/genblk2[0].RO/OUT0_reg[1]}]
+#set_property BEL DFF [get_cells {my_ro_puf/genblk2[0].RO/OUT1_reg[1]}]
+#set_property LOC SLICE_X4Y49 [get_cells {my_ro_puf/genblk2[0].RO/OUT1_reg[1]}]
+#set_property BEL B6LUT [get_cells {my_ro_puf/genblk2[0].RO/LUT6A0}]
+#set_property LOC SLICE_X5Y49 [get_cells {my_ro_puf/genblk2[0].RO/LUT6A0}]
+#set_property BEL D6LUT [get_cells {my_ro_puf/genblk2[0].RO/LUT6A3}]
+#set_property LOC SLICE_X5Y49 [get_cells {my_ro_puf/genblk2[0].RO/LUT6A3}]
+#set_property BEL C6LUT [get_cells {my_ro_puf/genblk2[0].RO/LUT63}]
+#set_property LOC SLICE_X5Y49 [get_cells {my_ro_puf/genblk2[0].RO/LUT63}]
+#set_property BEL F7BMUX [get_cells {my_ro_puf/genblk2[0].RO/MUXF73}]
+#set_property LOC SLICE_X5Y49 [get_cells {my_ro_puf/genblk2[0].RO/MUXF73}]
+#set_property BEL DFF [get_cells {my_ro_puf/genblk2[0].RO/OUT3_reg[1]}]
+#set_property LOC SLICE_X5Y49 [get_cells {my_ro_puf/genblk2[0].RO/OUT3_reg[1]}]
+#set_property BEL A6LUT [get_cells {my_ro_puf/genblk2[0].RO/LUT60}]
+#set_property LOC SLICE_X5Y49 [get_cells {my_ro_puf/genblk2[0].RO/LUT60}]
+#set_property BEL F7AMUX [get_cells {my_ro_puf/genblk2[0].RO/MUXF70}]
+#set_property LOC SLICE_X5Y49 [get_cells {my_ro_puf/genblk2[0].RO/MUXF70}]
+#set_property BEL BFF [get_cells {my_ro_puf/genblk2[0].RO/OUT2_reg[1]}]
+#set_property LOC SLICE_X5Y49 [get_cells {my_ro_puf/genblk2[0].RO/OUT2_reg[1]}]
+#set_property BEL D6LUT [get_cells {my_ro_puf/genblk2[1].RO/LUT6A2}]
+#set_property LOC SLICE_X6Y48 [get_cells {my_ro_puf/genblk2[1].RO/LUT6A2}]
+#set_property BEL A6LUT [get_cells {my_ro_puf/genblk2[1].RO/LUT60}]
+#set_property LOC SLICE_X4Y48 [get_cells {my_ro_puf/genblk2[1].RO/LUT60}]
+#set_property BEL A6LUT [get_cells {my_ro_puf/genblk2[1].RO/LUT61}]
+#set_property LOC SLICE_X6Y48 [get_cells {my_ro_puf/genblk2[1].RO/LUT61}]
+#set_property BEL C6LUT [get_cells {my_ro_puf/genblk2[1].RO/LUT62}]
+#set_property LOC SLICE_X6Y48 [get_cells {my_ro_puf/genblk2[1].RO/LUT62}]
+#set_property BEL A6LUT [get_cells {my_ro_puf/genblk2[1].RO/LUT63}]
+#set_property LOC SLICE_X6Y47 [get_cells {my_ro_puf/genblk2[1].RO/LUT63}]
+#set_property BEL B6LUT [get_cells {my_ro_puf/genblk2[1].RO/LUT6A0}]
+#set_property LOC SLICE_X4Y48 [get_cells {my_ro_puf/genblk2[1].RO/LUT6A0}]
+#set_property BEL B6LUT [get_cells {my_ro_puf/genblk2[1].RO/LUT6A1}]
+#set_property LOC SLICE_X6Y48 [get_cells {my_ro_puf/genblk2[1].RO/LUT6A1}]
+#set_property BEL B6LUT [get_cells {my_ro_puf/genblk2[1].RO/LUT6A3}]
+#set_property LOC SLICE_X6Y47 [get_cells {my_ro_puf/genblk2[1].RO/LUT6A3}]
+#set_property BEL F7AMUX [get_cells {my_ro_puf/genblk2[1].RO/MUXF70}]
+#set_property LOC SLICE_X4Y48 [get_cells {my_ro_puf/genblk2[1].RO/MUXF70}]
+#set_property BEL F7AMUX [get_cells {my_ro_puf/genblk2[1].RO/MUXF71}]
+#set_property LOC SLICE_X6Y48 [get_cells {my_ro_puf/genblk2[1].RO/MUXF71}]
+#set_property BEL F7BMUX [get_cells {my_ro_puf/genblk2[1].RO/MUXF72}]
+#set_property LOC SLICE_X6Y48 [get_cells {my_ro_puf/genblk2[1].RO/MUXF72}]
+#set_property BEL F7AMUX [get_cells {my_ro_puf/genblk2[1].RO/MUXF73}]
+#set_property LOC SLICE_X6Y47 [get_cells {my_ro_puf/genblk2[1].RO/MUXF73}]
+#set_property BEL BFF [get_cells {my_ro_puf/genblk2[1].RO/OUT0_reg[1]}]
+#set_property LOC SLICE_X6Y48 [get_cells {my_ro_puf/genblk2[1].RO/OUT0_reg[1]}]
+#set_property BEL DFF [get_cells {my_ro_puf/genblk2[1].RO/OUT1_reg[1]}]
+#set_property LOC SLICE_X6Y48 [get_cells {my_ro_puf/genblk2[1].RO/OUT1_reg[1]}]
+#set_property BEL BFF [get_cells {my_ro_puf/genblk2[1].RO/OUT2_reg[1]}]
+#set_property LOC SLICE_X6Y47 [get_cells {my_ro_puf/genblk2[1].RO/OUT2_reg[1]}]
+#set_property BEL AFF [get_cells {my_ro_puf/genblk2[1].RO/OUT3_reg[1]}]
+#set_property LOC SLICE_X3Y48 [get_cells {my_ro_puf/genblk2[1].RO/OUT3_reg[1]}]
+#set_property BEL D6LUT [get_cells {my_ro_puf/genblk2[2].RO/LUT6A3}]
+#set_property BEL BFF [get_cells {my_ro_puf/genblk2[2].RO/OUT2_reg[1]}]
+#set_property BEL A6LUT [get_cells {my_ro_puf/genblk2[2].RO/LUT61}]
+#set_property BEL B6LUT [get_cells {my_ro_puf/genblk2[2].RO/LUT6A1}]
+#set_property BEL F7AMUX [get_cells {my_ro_puf/genblk2[2].RO/MUXF70}]
+#set_property BEL F7AMUX [get_cells {my_ro_puf/genblk2[2].RO/MUXF71}]
+#set_property BEL C6LUT [get_cells {my_ro_puf/genblk2[2].RO/LUT63}]
+#set_property BEL F7BMUX [get_cells {my_ro_puf/genblk2[2].RO/MUXF73}]
+#set_property BEL BFF [get_cells {my_ro_puf/genblk2[2].RO/OUT0_reg[1]}]
+#set_property BEL A6LUT [get_cells {my_ro_puf/genblk2[2].RO/LUT60}]
+#set_property BEL D6LUT [get_cells {my_ro_puf/genblk2[2].RO/LUT6A2}]
+#set_property BEL DFF [get_cells {my_ro_puf/genblk2[2].RO/OUT3_reg[1]}]
+#set_property BEL B6LUT [get_cells {my_ro_puf/genblk2[2].RO/LUT6A0}]
+#set_property BEL F7BMUX [get_cells {my_ro_puf/genblk2[2].RO/MUXF72}]
+#set_property BEL C6LUT [get_cells {my_ro_puf/genblk2[2].RO/LUT62}]
+#set_property BEL DFF [get_cells {my_ro_puf/genblk2[2].RO/OUT1_reg[1]}]
+#set_property LOC SLICE_X2Y45 [get_cells {my_ro_puf/genblk2[2].RO/LUT6A3}]
+#set_property LOC SLICE_X2Y45 [get_cells {my_ro_puf/genblk2[2].RO/OUT2_reg[1]}]
+#set_property LOC SLICE_X5Y45 [get_cells {my_ro_puf/genblk2[2].RO/LUT61}]
+#set_property LOC SLICE_X5Y45 [get_cells {my_ro_puf/genblk2[2].RO/LUT6A1}]
+#set_property LOC SLICE_X2Y45 [get_cells {my_ro_puf/genblk2[2].RO/MUXF70}]
+#set_property LOC SLICE_X5Y45 [get_cells {my_ro_puf/genblk2[2].RO/MUXF71}]
+#set_property LOC SLICE_X2Y45 [get_cells {my_ro_puf/genblk2[2].RO/LUT63}]
+#set_property LOC SLICE_X2Y45 [get_cells {my_ro_puf/genblk2[2].RO/MUXF73}]
+#set_property LOC SLICE_X5Y45 [get_cells {my_ro_puf/genblk2[2].RO/OUT0_reg[1]}]
+#set_property LOC SLICE_X2Y45 [get_cells {my_ro_puf/genblk2[2].RO/LUT60}]
+#set_property LOC SLICE_X5Y45 [get_cells {my_ro_puf/genblk2[2].RO/LUT6A2}]
+#set_property LOC SLICE_X2Y45 [get_cells {my_ro_puf/genblk2[2].RO/OUT3_reg[1]}]
+#set_property LOC SLICE_X2Y45 [get_cells {my_ro_puf/genblk2[2].RO/LUT6A0}]
+#set_property LOC SLICE_X5Y45 [get_cells {my_ro_puf/genblk2[2].RO/MUXF72}]
+#set_property LOC SLICE_X5Y45 [get_cells {my_ro_puf/genblk2[2].RO/LUT62}]
+#set_property LOC SLICE_X5Y45 [get_cells {my_ro_puf/genblk2[2].RO/OUT1_reg[1]}]
+
+create_pblock RO_0
+add_cells_to_pblock [get_pblocks RO_0] [get_cells -quiet [list {my_ro_puf/genblk2[0].RO}]]
+resize_pblock [get_pblocks RO_0] -add {SLICE_X4Y49:SLICE_X5Y49}
+set_property IS_SOFT FALSE [get_pblocks RO_0]
+create_pblock RO_1
+add_cells_to_pblock [get_pblocks RO_1] [get_cells -quiet [list {my_ro_puf/genblk2[1].RO}]]
+resize_pblock [get_pblocks RO_1] -add {SLICE_X4Y48:SLICE_X5Y48}
+set_property IS_SOFT FALSE [get_pblocks RO_1]
+create_pblock RO_2
+add_cells_to_pblock [get_pblocks RO_2] [get_cells -quiet [list {my_ro_puf/genblk2[2].RO}]]
+resize_pblock [get_pblocks RO_2] -add {SLICE_X4Y47:SLICE_X5Y47}
+set_property IS_SOFT FALSE [get_pblocks RO_2]
+create_pblock RO_3
+add_cells_to_pblock [get_pblocks RO_3] [get_cells -quiet [list {my_ro_puf/genblk2[3].RO}]]
+resize_pblock [get_pblocks RO_3] -add {SLICE_X4Y46:SLICE_X5Y46}
+set_property IS_SOFT FALSE [get_pblocks RO_3]
+create_pblock RO_4
+add_cells_to_pblock [get_pblocks RO_4] [get_cells -quiet [list {my_ro_puf/genblk2[4].RO}]]
+resize_pblock [get_pblocks RO_4] -add {SLICE_X4Y45:SLICE_X5Y45}
+set_property IS_SOFT FALSE [get_pblocks RO_4]
+create_pblock RO_5
+add_cells_to_pblock [get_pblocks RO_5] [get_cells -quiet [list {my_ro_puf/genblk2[5].RO}]]
+resize_pblock [get_pblocks RO_5] -add {SLICE_X4Y44:SLICE_X5Y44}
+set_property IS_SOFT FALSE [get_pblocks RO_5]
+create_pblock RO_6
+add_cells_to_pblock [get_pblocks RO_6] [get_cells -quiet [list {my_ro_puf/genblk2[6].RO}]]
+resize_pblock [get_pblocks RO_6] -add {SLICE_X4Y43:SLICE_X5Y43}
+set_property IS_SOFT FALSE [get_pblocks RO_6]
+create_pblock RO_7
+add_cells_to_pblock [get_pblocks RO_7] [get_cells -quiet [list {my_ro_puf/genblk2[7].RO}]]
+resize_pblock [get_pblocks RO_7] -add {SLICE_X4Y42:SLICE_X5Y42}
+set_property IS_SOFT FALSE [get_pblocks RO_7]
+create_pblock RO_8
+add_cells_to_pblock [get_pblocks RO_8] [get_cells -quiet [list {my_ro_puf/genblk2[8].RO}]]
+resize_pblock [get_pblocks RO_8] -add {SLICE_X4Y41:SLICE_X5Y41}
+set_property IS_SOFT FALSE [get_pblocks RO_8]

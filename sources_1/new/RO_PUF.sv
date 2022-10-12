@@ -45,15 +45,14 @@ module RO_PUF(
         end
         old_challenge_xor <= ^{RESET, CHALLENGE};
         
-        if(enable && (time_count == 'hffff)) begin
-            if(current_ro == `NUM_RO - 1) enable <=0;
-            else current_ro <= current_ro + 1;
-            time_count <= 0;
-            reset <= 1;
+        if(enable) begin
+            if (time_count == 'hffffff) begin
+                if(current_ro == `NUM_RO - 1) enable <=0;
+                else current_ro <= current_ro + 1;
+                time_count <= 0;
+                reset <= 1;
+            end else time_count <= time_count + 1;
         end
-        
-        if(enable) time_count <= time_count + 1;
-
     end
     
 endmodule
