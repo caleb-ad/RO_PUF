@@ -66,14 +66,18 @@
 
 (* dont_touch = "true" *) module ring_oscillator(
     input EN,
-    input [5:0] CHALLENGE,
+    input [7:0] CHALLENGE,
     output logic OUT
     );
 
-    `RO_SLICE_FIRST(3, 0, CHALLENGE[3], CHALLENGE[0], EN);
-    `RO_SLICE(0, 1, CHALLENGE[4], CHALLENGE[1], EN);
-    `RO_SLICE(1, 2, CHALLENGE[5], CHALLENGE[2], EN);
-    `RO_SLICE_NOINVERT(2, 3, CHALLENGE[4], CHALLENGE[3], EN);
+    `RO_SLICE_FIRST(7, 0, CHALLENGE[4], CHALLENGE[0], EN);
+    `RO_SLICE(0, 1, CHALLENGE[5], CHALLENGE[1], EN);
+    `RO_SLICE(1, 2, CHALLENGE[6], CHALLENGE[2], EN);
+    `RO_SLICE(2, 3, CHALLENGE[7], CHALLENGE[3], EN);
+    `RO_SLICE(3, 4, CHALLENGE[4], CHALLENGE[0], EN);
+    `RO_SLICE(4, 5, CHALLENGE[5], CHALLENGE[1], EN);
+    `RO_SLICE(5, 6, CHALLENGE[6], CHALLENGE[2], EN);
+    `RO_SLICE_NOINVERT(6, 7, CHALLENGE[7], CHALLENGE[3], EN);
 
     assign OUT = OUT2[0];
 

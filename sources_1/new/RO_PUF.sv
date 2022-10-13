@@ -22,7 +22,7 @@ module RO_PUF(
 
     generate
         for (genvar i=0; i<`NUM_RO - 1; i = i + 1) assign RESPONSE[i] = compare_result[i] > compare_result[i + 1];
-        for (genvar i=0; i<`NUM_RO; i = i + 1) ring_oscillator  RO(.EN((current_ro == i) && enable), .CHALLENGE(CHALLENGE[5:0]), .OUT(ro_out[i]));
+        for (genvar i=0; i<`NUM_RO; i = i + 1) ring_oscillator  RO(.EN((current_ro == i) && enable), .CHALLENGE(CHALLENGE), .OUT(ro_out[i]));
     endgenerate
     
     assign DONE = ~enable;
