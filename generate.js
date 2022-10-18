@@ -1,0 +1,115 @@
+function generateRoHardware(baseX, yPos) {
+    return`
+set_property BEL D6LUT [get_cells {my_ro_puf/genblk2[0].RO/LUT6A4}]
+set_property BEL B6LUT [get_cells {my_ro_puf/genblk2[0].RO/LUT6A5}]
+set_property BEL F7AMUX [get_cells {my_ro_puf/genblk2[0].RO/MUXF71}]
+set_property BEL B6LUT [get_cells {my_ro_puf/genblk2[0].RO/LUT6A3}]
+set_property BEL BFF [get_cells {my_ro_puf/genblk2[0].RO/OUT0_reg[1]}]
+set_property BEL BFF [get_cells {my_ro_puf/genblk2[0].RO/OUT4_reg[1]}]
+set_property BEL DFF [get_cells {my_ro_puf/genblk2[0].RO/OUT5_reg[1]}]
+set_property BEL C6LUT [get_cells {my_ro_puf/genblk2[0].RO/LUT60}]
+set_property BEL A6LUT [get_cells {my_ro_puf/genblk2[0].RO/LUT61}]
+set_property BEL C6LUT [get_cells {my_ro_puf/genblk2[0].RO/LUT64}]
+set_property BEL F7BMUX [get_cells {my_ro_puf/genblk2[0].RO/MUXF74}]
+set_property BEL DFF [get_cells {my_ro_puf/genblk2[0].RO/OUT2_reg[1]}]
+set_property BEL D6LUT [get_cells {my_ro_puf/genblk2[0].RO/LUT6A6}]
+set_property BEL F7AMUX [get_cells {my_ro_puf/genblk2[0].RO/MUXF75}]
+set_property BEL AFF [get_cells {my_ro_puf/genblk2[0].RO/OUT3_reg[1]}]
+set_property BEL A6LUT [get_cells {my_ro_puf/genblk2[0].RO/LUT63}]
+set_property BEL F7AMUX [get_cells {my_ro_puf/genblk2[0].RO/MUXF77}]
+set_property BEL BFF [get_cells {my_ro_puf/genblk2[0].RO/OUT6_reg[1]}]
+set_property BEL C6LUT [get_cells {my_ro_puf/genblk2[0].RO/LUT66}]
+set_property BEL B6LUT [get_cells {my_ro_puf/genblk2[0].RO/LUT6A7}]
+set_property BEL F7BMUX [get_cells {my_ro_puf/genblk2[0].RO/MUXF72}]
+set_property BEL F7AMUX [get_cells {my_ro_puf/genblk2[0].RO/MUXF73}]
+set_property BEL BFF [get_cells {my_ro_puf/genblk2[0].RO/OUT1_reg[1]}]
+set_property BEL C6LUT [get_cells {my_ro_puf/genblk2[0].RO/LUT62}]
+set_property BEL A6LUT [get_cells {my_ro_puf/genblk2[0].RO/LUT67}]
+set_property BEL D6LUT [get_cells {my_ro_puf/genblk2[0].RO/LUT6A0}]
+set_property BEL A6LUT [get_cells {my_ro_puf/genblk2[0].RO/LUT65}]
+set_property BEL B6LUT [get_cells {my_ro_puf/genblk2[0].RO/LUT6A1}]
+set_property BEL D6LUT [get_cells {my_ro_puf/genblk2[0].RO/LUT6A2}]
+set_property BEL F7BMUX [get_cells {my_ro_puf/genblk2[0].RO/MUXF70}]
+set_property BEL F7BMUX [get_cells {my_ro_puf/genblk2[0].RO/MUXF76}]
+set_property BEL DFF [get_cells {my_ro_puf/genblk2[0].RO/OUT7_reg[1]}]
+set_property LOC SLICE_X${baseX + 3}Y${yPos} [get_cells {my_ro_puf/genblk2[0].RO/LUT6A4}]
+set_property LOC SLICE_X${baseX + 3}Y${yPos} [get_cells {my_ro_puf/genblk2[0].RO/LUT6A5}]
+set_property LOC SLICE_X${baseX}Y${yPos} [get_cells {my_ro_puf/genblk2[0].RO/MUXF71}]
+set_property LOC SLICE_X${baseX + 2}Y${yPos} [get_cells {my_ro_puf/genblk2[0].RO/LUT6A3}]
+set_property LOC SLICE_X${baseX + 1}Y${yPos} [get_cells {my_ro_puf/genblk2[0].RO/OUT0_reg[1]}]
+set_property LOC SLICE_X${baseX + 2}Y${yPos} [get_cells {my_ro_puf/genblk2[0].RO/OUT4_reg[1]}]
+set_property LOC SLICE_X${baseX + 1}Y${yPos} [get_cells {my_ro_puf/genblk2[0].RO/OUT5_reg[1]}]
+set_property LOC SLICE_X${baseX}Y${yPos} [get_cells {my_ro_puf/genblk2[0].RO/LUT60}]
+set_property LOC SLICE_X${baseX}Y${yPos} [get_cells {my_ro_puf/genblk2[0].RO/LUT61}]
+set_property LOC SLICE_X${baseX + 3}Y${yPos} [get_cells {my_ro_puf/genblk2[0].RO/LUT64}]
+set_property LOC SLICE_X${baseX + 3}Y${yPos} [get_cells {my_ro_puf/genblk2[0].RO/MUXF74}]
+set_property LOC SLICE_X${baseX + 3}Y${yPos} [get_cells {my_ro_puf/genblk2[0].RO/OUT2_reg[1]}]
+set_property LOC SLICE_X${baseX + 1}Y${yPos} [get_cells {my_ro_puf/genblk2[0].RO/LUT6A6}]
+set_property LOC SLICE_X${baseX + 3}Y${yPos} [get_cells {my_ro_puf/genblk2[0].RO/MUXF75}]
+set_property LOC SLICE_X${baseX + 2}Y${yPos} [get_cells {my_ro_puf/genblk2[0].RO/OUT3_reg[1]}]
+set_property LOC SLICE_X${baseX + 2}Y${yPos} [get_cells {my_ro_puf/genblk2[0].RO/LUT63}]
+set_property LOC SLICE_X${baseX + 1}Y${yPos} [get_cells {my_ro_puf/genblk2[0].RO/MUXF77}]
+set_property LOC SLICE_X${baseX}Y${yPos} [get_cells {my_ro_puf/genblk2[0].RO/OUT6_reg[1]}]
+set_property LOC SLICE_X${baseX + 1}Y${yPos} [get_cells {my_ro_puf/genblk2[0].RO/LUT66}]
+set_property LOC SLICE_X${baseX + 1}Y${yPos} [get_cells {my_ro_puf/genblk2[0].RO/LUT6A7}]
+set_property LOC SLICE_X${baseX + 2}Y${yPos} [get_cells {my_ro_puf/genblk2[0].RO/MUXF72}]
+set_property LOC SLICE_X${baseX + 2}Y${yPos} [get_cells {my_ro_puf/genblk2[0].RO/MUXF73}]
+set_property LOC SLICE_X${baseX + 3}Y${yPos} [get_cells {my_ro_puf/genblk2[0].RO/OUT1_reg[1]}]
+set_property LOC SLICE_X${baseX + 2}Y${yPos} [get_cells {my_ro_puf/genblk2[0].RO/LUT62}]
+set_property LOC SLICE_X${baseX + 1}Y${yPos} [get_cells {my_ro_puf/genblk2[0].RO/LUT67}]
+set_property LOC SLICE_X${baseX}Y${yPos} [get_cells {my_ro_puf/genblk2[0].RO/LUT6A0}]
+set_property LOC SLICE_X${baseX + 3}Y${yPos} [get_cells {my_ro_puf/genblk2[0].RO/LUT65}]
+set_property LOC SLICE_X${baseX}Y${yPos} [get_cells {my_ro_puf/genblk2[0].RO/LUT6A1}]
+set_property LOC SLICE_X${baseX + 2}Y${yPos} [get_cells {my_ro_puf/genblk2[0].RO/LUT6A2}]
+set_property LOC SLICE_X${baseX}Y${yPos} [get_cells {my_ro_puf/genblk2[0].RO/MUXF70}]
+set_property LOC SLICE_X${baseX + 1}Y${yPos} [get_cells {my_ro_puf/genblk2[0].RO/MUXF76}]
+set_property LOC SLICE_X${baseX}Y${yPos} [get_cells {my_ro_puf/genblk2[0].RO/OUT7_reg[1]}]
+`;
+}
+
+function generatePuf(baseX, topY) {
+    
+    let out = `
+create_pblock RO_0
+add_cells_to_pblock [get_pblocks RO_0] [get_cells -quiet [list {my_ro_puf/genblk2[0].RO}]]
+resize_pblock [get_pblocks RO_0] -add {SLICE_X${baseX}Y${topY}:SLICE_X35Y149}
+set_property IS_SOFT FALSE [get_pblocks RO_0]
+create_pblock RO_1
+add_cells_to_pblock [get_pblocks RO_1] [get_cells -quiet [list {my_ro_puf/genblk2[1].RO}]]
+resize_pblock [get_pblocks RO_1] -add {SLICE_X${baseX}Y${topY - 1}:SLICE_X35Y148}
+set_property IS_SOFT FALSE [get_pblocks RO_1]
+create_pblock RO_2
+add_cells_to_pblock [get_pblocks RO_2] [get_cells -quiet [list {my_ro_puf/genblk2[2].RO}]]
+resize_pblock [get_pblocks RO_2] -add {SLICE_X${baseX}Y${topY - 2}:SLICE_X35Y147}
+set_property IS_SOFT FALSE [get_pblocks RO_2]
+create_pblock RO_3
+add_cells_to_pblock [get_pblocks RO_3] [get_cells -quiet [list {my_ro_puf/genblk2[3].RO}]]
+resize_pblock [get_pblocks RO_3] -add {SLICE_X${baseX}Y${topY - 3}:SLICE_X35Y146}
+set_property IS_SOFT FALSE [get_pblocks RO_3]
+create_pblock RO_4
+add_cells_to_pblock [get_pblocks RO_4] [get_cells -quiet [list {my_ro_puf/genblk2[4].RO}]]
+resize_pblock [get_pblocks RO_4] -add {SLICE_X${baseX}Y${topY - 4}:SLICE_X35Y145}
+set_property IS_SOFT FALSE [get_pblocks RO_4]
+create_pblock RO_5
+add_cells_to_pblock [get_pblocks RO_5] [get_cells -quiet [list {my_ro_puf/genblk2[5].RO}]]
+resize_pblock [get_pblocks RO_5] -add {SLICE_X${baseX}Y${topY - 5}:SLICE_X35Y144}
+set_property IS_SOFT FALSE [get_pblocks RO_5]
+create_pblock RO_6
+add_cells_to_pblock [get_pblocks RO_6] [get_cells -quiet [list {my_ro_puf/genblk2[6].RO}]]
+resize_pblock [get_pblocks RO_6] -add {SLICE_X${baseX}Y${topY - 6}:SLICE_X35Y143}
+set_property IS_SOFT FALSE [get_pblocks RO_6]
+create_pblock RO_7
+add_cells_to_pblock [get_pblocks RO_7] [get_cells -quiet [list {my_ro_puf/genblk2[7].RO}]]
+resize_pblock [get_pblocks RO_7] -add {SLICE_X${baseX}Y${topY - 7}:SLICE_X35Y142}
+set_property IS_SOFT FALSE [get_pblocks RO_7]
+create_pblock RO_8
+add_cells_to_pblock [get_pblocks RO_8] [get_cells -quiet [list {my_ro_puf/genblk2[8].RO}]]
+resize_pblock [get_pblocks RO_8] -add {SLICE_X${baseX}Y${topY - 8}:SLICE_X35Y141}
+set_property IS_SOFT FALSE [get_pblocks RO_8]`;
+    for(let i = 0; i < 9; i++) {
+        out += generateRoHardware(baseX, topY - i)
+    }
+    return out
+}
+
+console.log(generatePuf(24, 88))
