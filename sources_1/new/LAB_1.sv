@@ -32,10 +32,7 @@ module LAB_1(
    logic [7:0] response;
    logic done;
    logic [15:0] display;
-   logic [127:0] hash;
-   logic [3:0] hash_switches;
-   logic dec_en, hasher_en;
-    
+   
    RO_PUF my_ro_puf (
    .CLK         (CLK),
    .RESET       (BTNC),
@@ -44,6 +41,7 @@ module LAB_1(
    .DONE        (done)
    );
    
+   assign display[7:0] = response;
    assign LEDS[7:0] = response;
    assign LEDS[14] = done; 
    
