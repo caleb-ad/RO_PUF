@@ -40,8 +40,8 @@
     ); \
     MUXF7 MUXF7``CURR ( \
        .O(OUT``CURR[0]),    // Output of MUX to general routing \
-       .I0(BX``CURR[1]),  // Input (tie to LUT6 O6 pin) \
-       .I1(BX``CURR[0]),  // Input (tie to LUT6 O6 pin) \
+       .I0(BX``CURR[0]),  // Input (tie to LUT6 O6 pin) \
+       .I1(BX``CURR[1]),  // Input (tie to LUT6 O6 pin) \
        .S(BX_SEL) \
     ); \
     always_latch if (EN) OUT``CURR[1] <= OUT``CURR[0];
@@ -65,6 +65,7 @@
     output logic OUT
     );
     
+    // create and tie together RO slices
     `RO_SLICE_FIRST(3, 0, CHALLENGE[4], CHALLENGE[0], EN, 40404040, 00aa55ff);
     `RO_SLICE(0, 1, CHALLENGE[5], CHALLENGE[1], EN, 20202020, 00aa55ff);
     `RO_SLICE(1, 2, CHALLENGE[6], CHALLENGE[2], EN, 20202020, 00aa55ff);
