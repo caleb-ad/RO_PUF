@@ -17,12 +17,12 @@ print("{:0>16x}".format( (((i0 & i3) |  (~i0 & i4)) & ~i5) | (i5 & ~i1 & i0 & i2
 print("{:0>16x}".format(  ((i0 & i3) |  (~i0 & i4)) & ~(i1 & ~i0 & i2) ))
 print("{:0>16x}".format(  ((i0 & i3) |  (~i0 & i4)) & ~(~i1 & i0 & i2) ))
 #inverting
-print("{:0>16x}".format( (((i0 & ~i3) | (~i0 & ~i4)) & 0xffffffffffffffff & ~i5) | (i5 & i1 & ~i0 & i2) ))
-print("{:0>16x}".format( (((i0 & ~i3) | (~i0 & ~i4)) & 0xffffffffffffffff & ~i5) | (i5 & ~i1 & i0 & i2) ))
+print("{:0>16x}".format( (((i0 & ~i3) | (~i0 & ~i4)) & ~i5 & 0xffffffffffffffff) | (i5 & i1 & ~i0 & i2) ))
+print("{:0>16x}".format( (((i0 & ~i3) | (~i0 & ~i4)) & ~i5 & 0xffffffffffffffff) | (i5 & ~i1 & i0 & i2) ))
 
-#mild
-#non-inverting
-print("{:0>16x}".format( ((i0 & i3) | (~i0 & i4))))
-#inverting
-print("{:0>16x}".format( ((i0 & ~i3) | (~i0 & ~i4)) & 0xffffffffffffffff ) )
+# #mild
+# #non-inverting
+# print("{:0>16x}".format( ((i0 & i3) | (~i0 & i4))))
+# #inverting
+# print("{:0>16x}".format( ((i0 & ~i3) | (~i0 & ~i4)) & 0xffffffffffffffff ) )
 

@@ -18,7 +18,7 @@
        .O5(BX``CURR[0]), \
        .I0(SEL), \
        .I1(BX_SEL),\
-       .I5(EN), \
+       .I5(1), \
        `ifdef OUT_DECLARED``PREV \
        .I2(EN), \
        `else \
@@ -33,15 +33,15 @@
        .LO(BX``CURR[1]), \
        .I0(SEL), \
        .I1(BX_SEL), \
-       .I2(EN), \
+       .I2(0), \
        .I3(OUTA``PREV[0]), \
        .I4(OUTA``PREV[1]), \
        .I5(EN) \
     ); \
     MUXF7 MUXF7``CURR ( \
        .O(OUT``CURR[0]),    // Output of MUX to general routing \
-       .I0(BX``CURR[0]),  // Input (tie to LUT6 O6 pin) \
-       .I1(BX``CURR[1]),  // Input (tie to LUT6 O6 pin) \
+       .I0(BX``CURR[1]),  // Input (tie to LUT6 O6 pin) \
+       .I1(BX``CURR[0]),  // Input (tie to LUT6 O6 pin) \
        .S(BX_SEL) \
     ); \
     always_latch if (EN) OUT``CURR[1] <= OUT``CURR[0];
@@ -71,6 +71,6 @@
     `RO_SLICE(1, 2, CHALLENGE[6], CHALLENGE[2], EN, 20202020, 00aa55ff);
     `RO_SLICE_NOINVERT(2, 3, CHALLENGE[7], CHALLENGE[3], EN, bf15aa00, bf15aa00);
 
-    assign OUT = OUT2[0];
+    assign OUT = OUT3[0];
 
 endmodule
